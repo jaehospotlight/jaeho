@@ -260,6 +260,59 @@
     }
     .footer-links a:hover { color: var(--accent); }
 
+    /* READING LIST */
+    .reading-section { padding: 2rem 0; }
+    .reading-section .section-label { margin-bottom: 1.25rem; }
+    .reading-list { list-style: none; }
+    .reading-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .reading-item:first-child { border-top: 1px solid var(--border-light); }
+    .reading-info { display: flex; flex-direction: column; gap: 0.15rem; }
+    .reading-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    a.reading-title {
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s ease;
+    }
+    a.reading-title:hover { border-color: var(--accent); color: var(--accent); }
+    .reading-author {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .reading-stars {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .reading-hidden {
+      display: none;
+    }
+    .reading-list.expanded .reading-hidden {
+      display: flex;
+    }
+    .show-more-btn {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.82rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 0 0;
+      transition: opacity 0.2s ease;
+    }
+    .show-more-btn:hover { opacity: 0.7; }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       html { font-size: 16px; }
@@ -278,6 +331,7 @@
     <a href="#" class="nav-name">Jaeho Lee</a>
     <div class="nav-links">
       <a href="#">Writing</a>
+      <a href="#">Reading</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -328,6 +382,92 @@
 
     <hr class="divider">
 
+    <section class="reading-section">
+      <p class="section-label">Reading — Books</p>
+      <ul class="reading-list" id="books-list">
+        <li class="reading-item">
+          <div class="reading-info">
+            <span class="reading-title">Sample Book Title</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★★★</div>
+        </li>
+        <li class="reading-item">
+          <div class="reading-info">
+            <span class="reading-title">Another Great Book</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★★☆</div>
+        </li>
+        <li class="reading-item">
+          <div class="reading-info">
+            <span class="reading-title">A Solid Read</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★☆☆</div>
+        </li>
+        <li class="reading-item reading-hidden">
+          <div class="reading-info">
+            <span class="reading-title">Hidden Book Four</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★★☆</div>
+        </li>
+        <li class="reading-item reading-hidden">
+          <div class="reading-info">
+            <span class="reading-title">Hidden Book Five</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★☆☆</div>
+        </li>
+        <li class="reading-item reading-hidden">
+          <div class="reading-info">
+            <span class="reading-title">Hidden Book Six</span>
+            <span class="reading-author">by Author Name</span>
+          </div>
+          <div class="reading-stars">★★★★★</div>
+        </li>
+      </ul>
+      <button class="show-more-btn" onclick="toggleList('books-list', this)">Show more</button>
+    </section>
+
+    <section class="reading-section">
+      <p class="section-label">Reading — Articles</p>
+      <ul class="reading-list" id="articles-list">
+        <li class="reading-item">
+          <div class="reading-info">
+            <a href="#" class="reading-title">Sample Article Title</a>
+            <span class="reading-author">Publication or Author</span>
+          </div>
+          <div class="reading-stars">★★★★★</div>
+        </li>
+        <li class="reading-item">
+          <div class="reading-info">
+            <a href="#" class="reading-title">Another Article Worth Reading</a>
+            <span class="reading-author">Publication or Author</span>
+          </div>
+          <div class="reading-stars">★★★★☆</div>
+        </li>
+        <li class="reading-item reading-hidden">
+          <div class="reading-info">
+            <a href="#" class="reading-title">Hidden Article Three</a>
+            <span class="reading-author">Publication or Author</span>
+          </div>
+          <div class="reading-stars">★★★★☆</div>
+        </li>
+        <li class="reading-item reading-hidden">
+          <div class="reading-info">
+            <a href="#" class="reading-title">Hidden Article Four</a>
+            <span class="reading-author">Publication or Author</span>
+          </div>
+          <div class="reading-stars">★★★☆☆</div>
+        </li>
+      </ul>
+      <button class="show-more-btn" onclick="toggleList('articles-list', this)">Show more</button>
+    </section>
+
+    <hr class="divider">
+
     <section class="section" id="contact">
       <p class="section-label">Contact</p>
       <p class="contact-text">
@@ -345,5 +485,12 @@
     </div>
   </footer>
 
+  <script>
+    function toggleList(listId, btn) {
+      const list = document.getElementById(listId);
+      list.classList.toggle('expanded');
+      btn.textContent = list.classList.contains('expanded') ? 'Show less' : 'Show more';
+    }
+  </script>
 </body>
 </html>

@@ -425,6 +425,70 @@ main {
 
 
 /* ============================================
+   READING LIST
+   ============================================ */
+
+.reading-section {
+  padding: 2rem 0;
+}
+
+.reading-section .section-label {
+  margin-bottom: 1.25rem;
+}
+
+.reading-list {
+  list-style: none;
+}
+
+.reading-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.reading-item:first-child {
+  border-top: 1px solid #eee;
+}
+
+.reading-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.reading-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+a.reading-title {
+  border-bottom: 1px solid #ddd;
+  transition: border-color 0.2s ease;
+}
+
+a.reading-title:hover {
+  border-color: #1a1a1a;
+}
+
+.reading-author {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.reading-stars {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #1B3A6B;
+  white-space: nowrap;
+}
+
+
+/* ============================================
    FOOTER
    ============================================ */
 
