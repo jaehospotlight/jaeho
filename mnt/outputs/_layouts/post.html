@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | truncate: 160 }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="nav">
+    <a href="{{ '/' | relative_url }}" class="nav-name">{{ site.title }}</a>
+    <div class="nav-links">
+      <a href="{{ '/blog' | relative_url }}">Writing</a>
+      <a href="{{ '/#contact' | relative_url }}">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post">
+      <header class="post-header">
+        <time class="post-date">{{ page.date | date: "%B %d, %Y" }}</time>
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="post-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+      </header>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+
+    <div class="post-nav">
+      <a href="{{ '/blog' | relative_url }}">&larr; Back to writing</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>

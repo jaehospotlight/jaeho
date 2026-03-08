@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaeho Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 17px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Newsreader', Georgia, serif; color: #1a1a1a; background: #fafafa; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: #1a1a1a; text-decoration: none; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem; max-width: 720px; width: 100%; margin: 0 auto; }
+    .nav-name { font-family: 'Inter', -apple-system, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.85rem; color: #666; transition: color 0.2s; }
+    .nav-links a:hover { color: #1a1a1a; }
+
+    main { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 2rem; flex: 1; }
+
+    .hero { padding: 6rem 0 4rem; }
+    .hero h1 { font-family: 'Newsreader', Georgia, serif; font-size: 2.4rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .hero-text { font-size: 1.1rem; line-height: 1.8; color: #444; max-width: 580px; }
+    .hero-text p { margin-bottom: 1rem; }
+    .hero-links { margin-top: 2rem; display: flex; gap: 1.5rem; }
+    .hero-links a { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.85rem; color: #666; border-bottom: 1px solid #ddd; padding-bottom: 2px; transition: all 0.2s; }
+    .hero-links a:hover { color: #1a1a1a; border-color: #1a1a1a; }
+
+    .section { padding: 3rem 0; }
+    .section-label { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 2rem; }
+    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 1rem 0; }
+
+    .post-list { list-style: none; }
+    .post-list li { margin-bottom: 1.5rem; }
+    .post-list a { display: block; transition: opacity 0.2s; }
+    .post-list a:hover { opacity: 0.6; }
+    .post-list-title { font-family: 'Newsreader', Georgia, serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; margin-bottom: 0.2rem; display: block; }
+    .post-list-date { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.78rem; color: #999; }
+    .view-all { margin-top: 2rem; }
+    .view-all a { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.85rem; color: #666; border-bottom: 1px solid #ddd; padding-bottom: 2px; transition: all 0.2s; }
+    .view-all a:hover { color: #1a1a1a; border-color: #1a1a1a; }
+
+    .contact-text { font-size: 1.05rem; color: #444; line-height: 1.8; }
+    .contact-text a { border-bottom: 1px solid #ccc; transition: border-color 0.2s; }
+    .contact-text a:hover { border-color: #1a1a1a; }
+
+    .footer { max-width: 720px; width: 100%; margin: 0 auto; padding: 3rem 2rem; }
+    .footer p { font-family: 'Inter', -apple-system, sans-serif; font-size: 0.75rem; color: #bbb; }
+
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .nav { padding: 1.5rem 1.25rem; }
+      main { padding: 0 1.25rem; }
+      .hero { padding: 3rem 0 2.5rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .footer { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#" class="nav-name">Jaeho Lee</a>
+    <div class="nav-links">
+      <a href="#">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <h1>Hi, I'm Jaeho.</h1>
+      <div class="hero-text">
+        <p>I'm building at the intersection of technology and [your focus area]. Currently working on <a href="https://tryspotlight.co">Spotlight</a>.</p>
+        <p>I write about things I'm thinking about — technology, building products, and ideas worth exploring.</p>
+      </div>
+      <div class="hero-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:jaeho@tryspotlight.co">Email</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+      <p class="section-label">Recent Writing</p>
+      <ul class="post-list">
+        <li>
+          <a href="#">
+            <span class="post-list-title">On Building in Public</span>
+            <span class="post-list-date">March 2026</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="post-list-title">Thinking About Product</span>
+            <span class="post-list-date">February 2026</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="post-list-title">Why I Write</span>
+            <span class="post-list-date">January 2026</span>
+          </a>
+        </li>
+      </ul>
+      <div class="view-all">
+        <a href="#">View all &rarr;</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="contact">
+      <p class="section-label">Contact</p>
+      <p class="contact-text">
+        Feel free to reach out at <a href="mailto:jaeho@tryspotlight.co">jaeho@tryspotlight.co</a> or find me on <a href="#">Twitter</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Jaeho Lee</p>
+  </footer>
+</body>
+</html>

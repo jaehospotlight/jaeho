@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaeho Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFBFD;
+      --bg-warm: #EEF1F6;
+      --text: #1a1a1a;
+      --text-secondary: #4a4f5c;
+      --text-muted: #8490a0;
+      --accent: #1B3A6B;
+      --accent-hover: #142D54;
+      --accent-light: rgba(27, 58, 107, 0.06);
+      --border: #DEE3EB;
+      --border-light: #E9ECF2;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 17px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: var(--text); text-decoration: none; }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .nav-name {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* MAIN */
+    main { max-width: 720px; width: 100%; margin: 0 auto; padding: 0 2rem; flex: 1; }
+
+    /* HERO */
+    .hero { padding: 5rem 0 4rem; }
+    .hero-eyebrow {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+    .hero-text p { margin-bottom: 1rem; }
+    .hero-text a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(27, 58, 107, 0.25);
+      transition: border-color 0.25s ease;
+    }
+    .hero-text a:hover { border-color: var(--accent); }
+
+    .hero-links {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .hero-links a {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: all 0.25s ease;
+    }
+    .hero-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 0.5rem 0;
+    }
+
+    /* SECTIONS */
+    .section { padding: 3rem 0; }
+    .section-label {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* POST LIST */
+    .post-list { list-style: none; }
+    .post-list li {
+      margin-bottom: 0;
+    }
+    .post-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1rem 1.15rem;
+      margin: 0 -1.15rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      gap: 1rem;
+    }
+    .post-list a:hover {
+      background: var(--accent-light);
+    }
+    .post-list-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .post-list a:hover .post-list-title {
+      color: var(--accent);
+    }
+    .post-list-date {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .view-all { margin-top: 1.5rem; padding-left: 1.15rem; }
+    .view-all a {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.85rem;
+      color: var(--accent);
+      transition: opacity 0.2s ease;
+    }
+    .view-all a:hover { opacity: 0.7; }
+
+    /* CONTACT */
+    .contact-text {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .contact-text a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(27, 58, 107, 0.25);
+      transition: border-color 0.25s ease;
+    }
+    .contact-text a:hover { border-color: var(--accent); }
+
+    /* NOW SECTION */
+    .now-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .now-card {
+      background: var(--bg-warm);
+      border-radius: 10px;
+      padding: 1.25rem 1.35rem;
+    }
+    .now-card-label {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .now-card-value {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .now-card-value a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(27, 58, 107, 0.25);
+    }
+
+    /* FOOTER */
+    .footer {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer p {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+    .footer-links a {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: color 0.25s ease;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .nav { padding: 1.5rem 1.25rem; }
+      main { padding: 0 1.25rem; }
+      .hero { padding: 3rem 0 2.5rem; }
+      .hero h1 { font-size: 2rem; }
+      .now-grid { grid-template-columns: 1fr; }
+      .footer { padding: 2rem 1.25rem; flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#" class="nav-name">Jaeho Lee</a>
+    <div class="nav-links">
+      <a href="#">Writing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-eyebrow">Builder & Writer</div>
+      <h1>Hi, I'm Jaeho.</h1>
+      <div class="hero-text">
+        <p>I'm building at the intersection of technology and [your focus area]. Currently working on <a href="https://tryspotlight.co">Spotlight</a>.</p>
+        <p>I write about things I'm thinking about — technology, building products, and ideas worth exploring.</p>
+      </div>
+      <div class="hero-links">
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:jaeho@tryspotlight.co">Email</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+      <p class="section-label">Recent Writing</p>
+      <ul class="post-list">
+        <li>
+          <a href="#">
+            <span class="post-list-title">On Building in Public</span>
+            <span class="post-list-date">Mar 2026</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="post-list-title">Thinking About Product</span>
+            <span class="post-list-date">Feb 2026</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="post-list-title">Why I Write</span>
+            <span class="post-list-date">Jan 2026</span>
+          </a>
+        </li>
+      </ul>
+      <div class="view-all">
+        <a href="#">View all &rarr;</a>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section" id="contact">
+      <p class="section-label">Contact</p>
+      <p class="contact-text">
+        Feel free to reach out at <a href="mailto:jaeho@tryspotlight.co">jaeho@tryspotlight.co</a> or find me on <a href="#">Twitter</a>. Always happy to chat about product, startups, and new ideas.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Jaeho Lee</p>
+    <div class="footer-links">
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+    </div>
+  </footer>
+
+</body>
+</html>
