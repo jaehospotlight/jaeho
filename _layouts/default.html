@@ -26,5 +26,13 @@
   <footer class="footer">
     <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
   </footer>
+
+  <script>
+    function toggleList(listId, btn) {
+      const list = document.getElementById(listId);
+      list.classList.toggle('expanded');
+      btn.textContent = list.classList.contains('expanded') ? 'Show less' : 'Show more';
+    }
+  </script>
 </body>
 </html>
