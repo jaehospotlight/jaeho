@@ -1,6 +1,6 @@
 title: Jaeho Lee
 description: Personal site and blog
-url: "jaeho.org" # Your custom domain, e.g. https://jaeho.com
+url: "https://jaeho.org" # Your custom domain
 baseurl: "" # Leave empty if deploying to root
 
 # Build settings
