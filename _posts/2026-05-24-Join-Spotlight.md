@@ -30,4 +30,4 @@ Our first employee now makes what most software engineers make. SpotlightTCG is 
 
 The most important thing in your 20s is doing something you actually learn from and gaining taste. An LLM can't do that for you.
 
-If this sounds like you, reach out.
+If this sounds like you, reach out to [jaeho@tryspotlight.co](mailto:jaeho@tryspotlight.co)

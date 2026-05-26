@@ -298,11 +298,11 @@ main {
    ============================================ */
 
 .post {
-  padding: 4rem 0 2rem;
+  padding: 1.5rem 0 1rem;
 }
 
 .post-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .post-date {
@@ -408,7 +408,7 @@ main {
 }
 
 .post-nav {
-  padding: 2rem 0 4rem;
+  padding: 1rem 0 1.5rem;
 }
 
 .post-nav a {
