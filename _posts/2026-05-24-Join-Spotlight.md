@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: spotlight
 title: "Join Spotlight"
 date: 2026-05-24
 public: true
