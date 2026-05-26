@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How I Think about Dating"
-date: 2026-02-16
+title: How I Think about Dating
+date: 2026-02-26
 ---
 
 **Context:** 

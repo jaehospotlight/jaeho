@@ -8,7 +8,7 @@ title: Writing
 </div>
 
 <ul class="blog-list">
-  {% for post in site.posts %}
+  {% for post in site.posts %}{% unless post.public %}{% continue %}{% endunless %}
   <li>
     <a href="{{ post.url | relative_url }}">
       <span class="blog-list-title">{{ post.title }}</span>
