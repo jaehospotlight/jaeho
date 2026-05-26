@@ -480,6 +480,14 @@ a.reading-title:hover {
   color: #999;
 }
 
+.reading-note {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  display: block;
+  margin-top: 0.25rem;
+}
+
 .reading-stars {
   font-size: 0.85rem;
   letter-spacing: 1px;

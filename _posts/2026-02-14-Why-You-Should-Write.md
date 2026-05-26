@@ -2,6 +2,7 @@
 layout: post
 title: "Why You Should Write"
 date: 2026-02-14
+published: false
 ---
 
 A founder has two jobs: increase revenue or reduce costs. For both, headcount is the biggest lever.

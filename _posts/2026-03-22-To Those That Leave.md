@@ -2,6 +2,7 @@
 layout: post
 title: A New Beginning
 date: 2026-03-22
+published: false
 ---
 Running a company is emotionally draining because life isn't meant to be lived in the extremes. But that's what running a company systematically is. In exchange for unlimited upside (the best extremes), you're responsible for all the black swan events (the worst extremes). 
 

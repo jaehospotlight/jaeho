@@ -2,6 +2,7 @@
 layout: post
 title: Am I Boring?
 date: 2026-03-15
+published: false
 ---
 I once thought my biggest fear in life with respect to relationships was being 'being boring'. After all, if somebody doesn't care about my work, that's 99% of who I am. There are no hobbies and hobbies are easily shut down when work increases. 
 

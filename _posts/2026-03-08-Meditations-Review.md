@@ -2,6 +2,7 @@
 layout: post
 title: "On Meditation"
 date: 2026-03-08
+published: false
 ---
 
 "Of the doctrines central to the Stoic worldview, perhaps the most important is the unwavering conviction that the world is organized in a rational and coherent way"
