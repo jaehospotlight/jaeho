@@ -93,7 +93,7 @@ main {
    ============================================ */
 
 .hero {
-  padding: 0.5rem 0 0.5rem;
+  padding: 1rem 0 0.75rem;
 }
 
 .hero h1 {
@@ -143,7 +143,7 @@ main {
    ============================================ */
 
 .section {
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 }
 
 .section-label {
@@ -159,7 +159,7 @@ main {
 .divider {
   border: none;
   border-top: 1px solid #e8e8e8;
-  margin: 0.25rem 0;
+  margin: 0.4rem 0;
 }
 
 
@@ -429,7 +429,7 @@ main {
    ============================================ */
 
 .reading-section {
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
 }
 
 .reading-section .section-label {
