@@ -2,7 +2,7 @@
 layout: post
 title: Hypergrowth Industries
 date: 2026-07-12
-public: false
+public: true
 ---
 Yesterday, I read an article titled [Invisible Industries](https://colossus.com/article/invisible-companies/). 
 
