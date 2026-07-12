@@ -35,7 +35,8 @@ title: Home
 <section class="reading-section">
   <p class="section-label">Reading — Articles</p>
   <ul class="reading-list" id="articles-list">
-    {% for article in site.data.articles limit:3 %}
+    {% assign recent_articles = site.data.articles | sort: "added" | reverse %}
+    {% for article in recent_articles limit:3 %}
     <li class="reading-item">
       <div class="reading-info">
         <a href="{{ article.url }}" class="reading-title">{{ article.title }}</a>
