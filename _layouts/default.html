@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f1efe8">
+  <meta name="theme-color" content="#050505">
   <title>{% if page.title and page.title != 'Home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — Personal Site{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <meta property="og:type" content="website">
@@ -19,15 +19,12 @@
   {% endunless %}
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <nav class="nav" aria-label="Primary navigation">
-    <a href="{{ '/' | relative_url }}" class="nav-mark" aria-label="Jaeho Lee, home">JL<span class="nav-dot">.</span></a>
-    <div class="nav-status" aria-hidden="true"><span></span> New York City</div>
+    <a href="{{ '/' | relative_url }}" class="nav-mark" aria-label="Jaeho Lee, home">JAEHO LEE</a>
+    <div class="nav-status" aria-hidden="true">NEW YORK / {{ 'now' | date: "%Y" }}</div>
     <div class="nav-links">
       <a href="{{ '/blog' | relative_url }}">Writing</a>
       <a href="{{ '/reading' | relative_url }}">Reading</a>
