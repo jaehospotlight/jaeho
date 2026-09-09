@@ -11,33 +11,22 @@ description: Jaeho Lee — founder, reader, and writer in New York City.
     <p class="hero-intro">I build, read, and write about<br>ideas that deserve attention.</p>
   </div>
 
-  <a class="ascii-visual" href="https://www.youtube.com/watch?v=ymK4h7DyXKw" target="_blank" rel="noopener" aria-label="Listen to After Love by Anyma featuring Delilah Montagu on YouTube">
+  <figure class="ascii-visual" aria-label="A mechanical hand and a human hand reach toward a softly pulsing point of contact, rendered in ASCII characters.">
     <div class="ascii-meta">
-      <span class="live-label"><i aria-hidden="true"></i>LIVE ASCII SIGNAL</span>
-      <span>ANYMA / AFTER LOVE ↗</span>
+      <span class="live-label"><i aria-hidden="true"></i>STUDY 001 / CONTACT</span>
+      <a href="https://www.youtube.com/watch?v=ymK4h7DyXKw" target="_blank" rel="noopener" aria-label="Listen to After Love by Anyma featuring Delilah Montagu on YouTube">ANYMA / AFTER LOVE ↗</a>
     </div>
-    <pre aria-hidden="true" data-ascii-art>
-          .--=====-.                                  .-=======--.
-      _.-=##########=-._                          _.-=%%%%%%%%%%%%=-._
-  _.-+######/  /##/#####+-._                _.-+%%%%/  /%%/%%%%%%%%%+-._
- /######/__/__/__/__/########\              /%%%%%/__/__/__/__/%%%%%%%%%\
-|#######_____  _____/#########|            |%%%%%%%\_____  _____%%%%%%%%%|
- \#####/     \/     \########/              \%%%%%%/     \/     \%%%%%%%%/
-  `+##/  .--.  .--.  \####+-'                `+%%/  .--.  .--.  \%%%%+-'
-     \__/    \/    \__\__                         /__/    \/    \__\
-        \     \     \   `---.              .---'   /     /     /
-         \____/\____/\______ `-.        .-' ______/\____/\____/
-                  \         `-. `-.  .-' .-'         /
-                   `----------->  ..  <-----------'
-                                  ::
-                                  ..
-    </pre>
-    <div class="ascii-caption">
-      <span>MACHINE</span>
-      <span>CONTACT / SIGNAL / MEMORY</span>
-      <span>HUMAN</span>
+    <div class="ascii-stage">
+      <canvas data-ascii-art aria-hidden="true"></canvas>
+      <pre class="ascii-fallback" aria-hidden="true">{% include contact-ascii.txt %}</pre>
     </div>
-  </a>
+    <figcaption class="ascii-caption">
+      <span>01 / MACHINE</span>
+      <span class="ascii-caption-center">THE SPACE BETWEEN</span>
+      <span>02 / HUMAN</span>
+      <button class="ascii-toggle" type="button" aria-pressed="false" hidden>Pause animation</button>
+    </figcaption>
+  </figure>
 </section>
 
 <section class="manifesto" aria-label="Point of view">
