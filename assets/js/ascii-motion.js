@@ -13,7 +13,7 @@
   const paint = source.getContext('2d', { willReadFrequently: true });
   if (!paint) return;
   const W = 1000, H = 426;
-  let cols, rows, width, height, cellX, cellY, offsetY, levels;
+  let cols, rows, width, height, cellX, cellY, offsetX, offsetY, levels;
   let frame = 0, last = 0, elapsed = 0, visible = true, paused = reduced.matches;
   const ramp = ' .,:;irsXA253hMHGS#9B&@';
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
@@ -131,7 +131,7 @@
         line += glyph;
         if (level) {
           context.globalAlpha = clamp(.36 + light * .85, .36, 1);
-          context.fillText(glyph, (x + .5) * cellX, offsetY + (y + .5) * cellY);
+          context.fillText(glyph, offsetX + (x + .5) * cellX, offsetY + (y + .5) * cellY);
         }
       }
       lines.push(line);
@@ -150,11 +150,12 @@
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cols = Math.round(clamp(width / 7, 86, 176));
+    const artWidth = Math.min(width, height * W / H);
+    cols = Math.round(clamp(artWidth / 6, 86, 176));
     rows = Math.round(cols * H / W / 1.65);
     source.width = cols; source.height = rows;
     levels = new Uint8Array(cols * rows);
-    cellX = width / cols;
+    cellX = artWidth / cols; offsetX = (width - artWidth) / 2;
     const artHeight = Math.min(height, width * H / W);
     cellY = artHeight / rows; offsetY = (height - artHeight) / 2;
     context.font = `${Math.min(cellX * 1.42, cellY * .95)}px "SFMono-Regular", Consolas, "Liberation Mono", monospace`;
