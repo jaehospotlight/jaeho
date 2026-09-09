@@ -38,10 +38,13 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 .ascii-visual:hover { background: #102b80; }
 .ascii-meta, .ascii-caption { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; font: .56rem/1.2 var(--mono); letter-spacing: .08em; }
 .ascii-meta { border-bottom: 1px solid rgba(255,255,255,.28); }
+.live-label { display: inline-flex; align-items: center; gap: .55rem; }
+.live-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--white); animation: signal-pulse 1.35s steps(2, end) infinite; }
 .ascii-caption { border-top: 1px solid rgba(255,255,255,.28); }
 .ascii-visual pre { margin: 0; padding: clamp(3rem, 8vw, 7rem) 1rem; min-width: 82ch; overflow: hidden; font: clamp(.46rem, .91vw, .8rem)/1.25 var(--mono); text-align: center; opacity: .94; transition: opacity .25s ease, letter-spacing .5s ease; }
 .ascii-visual:hover pre { opacity: 1; letter-spacing: .015em; }
 .ascii-visual::after { content: ""; position: absolute; inset: 31px 0 32px; pointer-events: none; background: linear-gradient(180deg, transparent 0, rgba(255,255,255,.1) 50%, transparent 100%); background-size: 100% 12px; opacity: .15; }
+@keyframes signal-pulse { 50% { opacity: .18; } }
 
 .manifesto { margin: 0 0 clamp(7rem, 12vw, 11rem); padding: 1.2rem 0; border-block: 1px solid var(--line); display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 1rem; font: .65rem/1.45 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 .manifesto p { margin: 0; }
@@ -151,4 +154,5 @@ a:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
+  .live-label i { animation: none; }
 }
