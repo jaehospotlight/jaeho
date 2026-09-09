@@ -1,7 +1,7 @@
 title: Jaeho Lee
-description: Personal site and blog
-url: "https://jaeho.org" # Your custom domain
-baseurl: "" # Leave empty if deploying to root
+description: Jaeho Lee’s personal corner of the internet—notes on work, life, and ideas worth keeping.
+url: "https://jaeho.org"
+baseurl: ""
 
 # Build settings
 markdown: kramdown
@@ -12,3 +12,6 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - redline
+  - "Untitled.md"
+  - "Untitled 1.md"

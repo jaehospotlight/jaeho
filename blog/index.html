@@ -1,19 +1,25 @@
 ---
 layout: default
 title: Writing
+description: Personal essays and notes from Jaeho Lee.
 ---
 
-<div class="blog-header">
+<header class="blog-header">
+  <p class="eyebrow">Notes to self, shared</p>
   <h1>Writing</h1>
-</div>
+  <p class="page-intro">I write to work out what I think. These are the ideas that felt useful enough to keep—and honest enough to share.</p>
+</header>
 
-<ul class="blog-list">
-  {% for post in site.posts %}{% unless post.public %}{% continue %}{% endunless %}
+<ol class="archive-list">
+  {% assign public_posts = site.posts | where: "public", true %}
+  {% for post in public_posts %}
   <li>
     <a href="{{ post.url | relative_url }}">
-      <span class="blog-list-title">{{ post.title }}</span>
-      <span class="blog-list-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      <span class="archive-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+      <span class="archive-title">{{ post.title }}</span>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      <span aria-hidden="true">↗</span>
     </a>
   </li>
   {% endfor %}
-</ul>
+</ol>

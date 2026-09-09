@@ -3,36 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="theme-color" content="#f1efe8">
+  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — Personal Site{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — Personal Site{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title and page.title != 'Home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — Personal Site{% endif %}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+  {% unless page.layout == 'post' %}
+  <meta property="og:image" content="{{ '/assets/images/og.png' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/images/og.png' | absolute_url }}">
+  {% endunless %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="nav">
-    <a href="{{ '/' | relative_url }}" class="nav-name">{{ site.title }}</a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="{{ '/' | relative_url }}" class="nav-mark" aria-label="Jaeho Lee, home">JL<span class="nav-dot">.</span></a>
+    <div class="nav-status" aria-hidden="true"><span></span> New York City</div>
     <div class="nav-links">
       <a href="{{ '/blog' | relative_url }}">Writing</a>
       <a href="{{ '/reading' | relative_url }}">Reading</a>
-      <a href="mailto:jaeho@tryspotlight.co">Contact</a>
+      <a href="{{ '/#contact' | relative_url }}">Contact</a>
     </div>
   </nav>
 
-  <main>
+  <main id="main-content">
     {{ content }}
   </main>
 
   <footer class="footer">
-    <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    <a href="{{ '/' | relative_url }}" class="footer-name">Jaeho Lee</a>
+    <p>New York City · © {{ 'now' | date: "%Y" }}</p>
+    <div class="footer-links">
+      <a href="https://x.com/_jaeholee_" target="_blank" rel="noopener">X ↗</a>
+      <a href="https://www.linkedin.com/in/jaeholee2002/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
   </footer>
-
-  <script>
-    function toggleList(listId, btn) {
-      const list = document.getElementById(listId);
-      list.classList.toggle('expanded');
-      btn.textContent = list.classList.contains('expanded') ? 'Show less' : 'Show more';
-    }
-  </script>
 </body>
 </html>

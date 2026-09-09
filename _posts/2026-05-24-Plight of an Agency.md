@@ -2,7 +2,7 @@
 layout: post
 title: Plight of an Agency
 date: 2026-05-30
-public: false
+published: false
 ---
 There are fundamentally 2 problems with the agency industry, specifically within industries that rely on past results. 
 

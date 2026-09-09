@@ -1,23 +1,25 @@
 ---
 layout: default
 title: Reading
+description: A personal reading list of articles and ideas shaping Jaeho Lee’s thinking.
 ---
 
-<div class="blog-header">
+<header class="blog-header">
+  <p class="eyebrow">Things worth returning to</p>
   <h1>Reading</h1>
-</div>
+  <p class="page-intro">A running shelf of ideas I’m borrowing, questioning, and returning to.</p>
+</header>
 
-<section class="reading-section">
-  <p class="section-label">Articles</p>
-  <ul class="reading-list">
-    {% assign recent_articles = site.data.articles | sort: "added" | reverse %}
-    {% for article in recent_articles %}
-    <li class="reading-item">
-      <div class="reading-info">
-        <a href="{{ article.url }}" class="reading-title">{{ article.title }}</a>
-        <span class="reading-note">{{ article.note }}</span>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
+<div class="reading-archive">
+  {% assign recent_articles = site.data.articles | sort: "added" | reverse %}
+  {% for article in recent_articles %}
+  <a class="reading-row" href="{{ article.url }}" target="_blank" rel="noopener">
+    <span class="archive-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+    <span class="reading-row-main">
+      <strong>{{ article.title }}</strong>
+      <span>{{ article.note }}</span>
+    </span>
+    <span aria-hidden="true">↗</span>
+  </a>
+  {% endfor %}
+</div>
