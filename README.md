@@ -6,7 +6,9 @@ Personal website and blog. Built with Jekyll, hosted on GitHub Pages.
 
 Instinct can publish to **Reading** by creating an issue in `jaehospotlight/jaeho`
 using the `jaehospotlight` GitHub account. Use the issue title as the entry title,
-put the tweet URL in the body, and optionally add a `Summary:` or `Note:` below it.
+put the tweet URL in the body, and only if Jaeho supplies a blurb, copy his words
+verbatim into a `Personal note:` field below it. No personal note means no blurb.
+Generated summaries, generic `Note:` fields, and unmarked body text are not displayed.
 No label is required for X/Twitter links. For other articles, add the `reading`
 label or start the issue title with `[Reading]`.
 
@@ -29,8 +31,10 @@ Suggested instruction for Instinct:
 
 > Whenever I ask you to save a tweet or article to my website, create a GitHub
 > issue in jaehospotlight/jaeho titled `[Reading] <short descriptive title>`.
-> Put the original URL on its own line, followed by any summary and my note.
-> If I change my note, edit the original issue body. GitHub publishes it automatically.
+> Put the original URL on its own line. Do not invent a blurb or summarize the link.
+> Only when I supply a blurb, copy my exact words under `Personal note:`. Otherwise
+> omit that field entirely. If I change my note, edit the original issue body.
+> GitHub publishes it automatically.
 
 Pages uses **GitHub Actions** as its publishing source, via `.github/workflows/pages.yml`.
 

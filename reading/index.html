@@ -21,7 +21,7 @@ description: A personal reading list of articles and ideas shaping Jaeho Lee’s
     <span class="archive-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
     <span class="reading-row-main">
       <strong>{{ article.title | escape }}</strong>
-      <span>{{ article.note | escape }}</span>
+      {% if article.note and article.note != empty %}<span>{{ article.note | escape }}</span>{% endif %}
     </span>
     <span aria-hidden="true">↗</span>
   </a>

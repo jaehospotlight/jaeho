@@ -57,7 +57,7 @@ description: A personal journal by Jaeho Lee. Thoughts in progress, reading, and
     <a class="reading-card" href="{{ article.url | escape }}" target="_blank" rel="noopener">
       <span class="reading-index">0{{ forloop.index }}</span>
       <h3>{{ article.title | escape }}</h3>
-      <p>{{ article.note | escape }}</p>
+      {% if article.note and article.note != empty %}<p>{{ article.note | escape }}</p>{% endif %}
       <span class="reading-arrow" aria-hidden="true">↗</span>
     </a>
     {% endfor %}

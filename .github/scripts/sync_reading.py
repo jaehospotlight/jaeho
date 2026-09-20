@@ -34,21 +34,28 @@ def normalize_url(raw):
     return url, url
 
 
-def extract_note(body, source_url):
+def extract_note(body):
+    """Only publish text explicitly supplied as a personal note, never a summary."""
     lines = []
+    in_note = False
     for line in body.splitlines():
-        line = line.strip()
-        # Support a plain link, a Markdown link, or a "URL: ..." field.
-        without_link = re.sub(r"\[[^\]]*\]\(" + re.escape(source_url) + r"\)", "", line)
-        without_link = without_link.replace(source_url, "").strip()
-        field = re.sub(r"^[#\s]+|[:\s]+$", "", without_link).lower()
-        if not field or field in {"url", "link", "tweet", "tweet url", "article url", "_no response_"}:
+        personal_note = re.match(r"^\s*Personal note:\s*(.*)$", line, re.IGNORECASE)
+        personal_heading = re.fullmatch(r"\s*#{1,6}\s+Personal note\s*:?[ \t]*", line, re.IGNORECASE)
+        if not in_note:
+            if personal_note or personal_heading:
+                in_note = True
+                if personal_note:
+                    lines.append(personal_note.group(1))
             continue
-        if re.fullmatch(r"#{1,6}\s+(?:summary|notes?|personal note)", line, re.IGNORECASE):
-            continue
-        line = re.sub(r"^(?:summary|notes?|personal note):\s*", "", line, flags=re.IGNORECASE)
+        # Stop at the next issue field; summaries can appear after a personal note.
+        if re.match(r"^\s*#{1,6}\s+", line) or re.match(
+            r"^\s*(?:summary|description|notes?|personal note|url|link|tweet(?: url)?|article(?: url)?|source):",
+            line, re.IGNORECASE,
+        ):
+            break
         lines.append(line)
-    return " ".join(lines)
+    note = "\n".join(lines).strip()
+    return "" if note == "_No response_" else note
 
 
 def reading_entries(issues, author):
@@ -79,7 +86,7 @@ def reading_entries(issues, author):
         entries.append({
             "title": re.sub(r"^\[reading\]\s*", "", title, flags=re.IGNORECASE) or "Saved reading",
             "url": url,
-            "note": extract_note(body, raw),
+            "note": extract_note(body),
             "added": issue["created_at"][:10],
             "issue_number": issue["number"],
         })
