@@ -5,3 +5,5 @@ tmp/
 Untitled.md
 _site/
 .jekyll-cache/
+_data/reading_submissions.json
+__pycache__/

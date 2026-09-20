@@ -11,13 +11,17 @@ description: A personal reading list of articles and ideas shaping Jaeho Lee’s
 </header>
 
 <div class="reading-archive">
-  {% assign recent_articles = site.data.articles | sort: "added" | reverse %}
+  {% assign recent_articles = site.data.articles %}
+  {% if site.data.reading_submissions %}
+    {% assign recent_articles = recent_articles | concat: site.data.reading_submissions %}
+  {% endif %}
+  {% assign recent_articles = recent_articles | uniq: "url" | sort: "added" | reverse %}
   {% for article in recent_articles %}
-  <a class="reading-row" href="{{ article.url }}" target="_blank" rel="noopener">
+  <a class="reading-row" href="{{ article.url | escape }}" target="_blank" rel="noopener">
     <span class="archive-number">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
     <span class="reading-row-main">
-      <strong>{{ article.title }}</strong>
-      <span>{{ article.note }}</span>
+      <strong>{{ article.title | escape }}</strong>
+      <span>{{ article.note | escape }}</span>
     </span>
     <span aria-hidden="true">↗</span>
   </a>

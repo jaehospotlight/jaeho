@@ -2,6 +2,38 @@
 
 Personal website and blog. Built with Jekyll, hosted on GitHub Pages.
 
+## Automatic Reading publishing
+
+Instinct can publish to **Reading** by creating an issue in `jaehospotlight/jaeho`
+using the `jaehospotlight` GitHub account. Use the issue title as the entry title,
+put the tweet URL in the body, and optionally add a `Summary:` or `Note:` below it.
+No label is required for X/Twitter links. For other articles, add the `reading`
+label or start the issue title with `[Reading]`.
+
+GitHub Actions imports the issues and publishes the site automatically after an
+issue is created, edited, reopened, labeled, unlabeled, or deleted. It also runs
+on pushes to `main` and can be run manually from the Actions tab. No running Mac,
+Codex session, personal access token, or approval step is needed.
+
+- Everything appears at `/reading/`, alongside the existing reading list.
+- Only issues authored by `jaehospotlight` are imported; pull requests are ignored.
+- Duplicate tweet links are consolidated, with the newest submission taking precedence.
+- Edit the issue title/body to update an entry. Comments are not imported.
+- Closing an issue keeps its entry. Add `reading-ignore` or delete the issue to remove it.
+- Issues remain the source of truth. `_data/reading_submissions.json` is generated
+  during builds and is not committed. Existing curated links stay in `_data/articles.yml`.
+- If the import or build fails, the last successful website remains live. Check
+  **Actions → Publish website and Reading** for the error and rerun after fixing it.
+
+Suggested instruction for Instinct:
+
+> Whenever I ask you to save a tweet or article to my website, create a GitHub
+> issue in jaehospotlight/jaeho titled `[Reading] <short descriptive title>`.
+> Put the original URL on its own line, followed by any summary and my note.
+> If I change my note, edit the original issue body. GitHub publishes it automatically.
+
+Pages uses **GitHub Actions** as its publishing source, via `.github/workflows/pages.yml`.
+
 ---
 
 ## Quick Start — Deploy to GitHub Pages
@@ -28,9 +60,8 @@ git push -u origin main
 ### 3. Enable GitHub Pages
 
 1. Go to your repo → **Settings** → **Pages**
-2. Under "Source", select **Deploy from a branch**
-3. Choose **main** branch, root folder (`/`)
-4. Click **Save**
+2. Under "Source", select **GitHub Actions**
+3. Push to `main` or run **Publish website and Reading** from the Actions tab.
 
 Your site will be live at `https://YOUR_USERNAME.github.io/YOUR_REPO/` within a minute or two.
 

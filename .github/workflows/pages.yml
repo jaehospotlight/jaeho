@@ -1,0 +1,61 @@
+name: Publish website and Reading
+
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [opened, edited, reopened, labeled, unlabeled, deleted]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Every build reads the complete inbox, so a superseded queued run loses no links.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'issues' || github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+      pages: read
+    steps:
+      - name: Check out published branch
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Test Reading importer
+        run: python3 -m unittest discover -s .github/scripts -p 'test_*.py'
+      - name: Import Reading submissions
+        run: python3 .github/scripts/sync_reading.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+          READING_AUTHOR: ${{ github.repository_owner }}
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
